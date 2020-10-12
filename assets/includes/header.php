@@ -19,7 +19,7 @@
     <!-- Labelauty -->
     <link rel="stylesheet" href="assets\puglins\Labelauty\jquery-labelauty.css">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="assets/scss/dist/estilos.css">
 </head>
 
 <body>

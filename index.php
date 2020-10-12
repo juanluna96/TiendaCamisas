@@ -1,11 +1,13 @@
 <?php require_once 'assets/includes/header.php'; ?>
 
 <div class="container-fluid mt-5 row pr-0">
-    <div class="sidebar login col-12 col-lg-4">
-
+    <div class="sidebar login col-12 col-lg-3 pr-0">
+        <div class="col-12 bg-danger">
+            <h1>Hola</h1>
+        </div>
     </div>
 
-    <div class="productos pr-0 col-12 col-lg-8">
+    <div class="productos pr-0 col-12 col-lg-9">
         <div class="row justify-content-around">
             <div class="col-12 col-lg-6 col-xl-4 mb-3">
                 <div class="caja-producto">
@@ -38,11 +40,20 @@
                                     Color
                                 </div>
                                 <div class="value-color">
-                                    <span class="grey"></span>
-                                    <span class="blue active"></span>
-                                    <span class="yellow"></span>
-                                    <span class="green"></span>
-                                    <span class="red"></span>
+                                    <input type="radio" class="color" name="color" id="red" value="red" />
+                                    <label class="color" for="red"><span class="red"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="green" />
+                                    <label class="color" for="green"><span class="green"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="yellow" />
+                                    <label class="color" for="yellow"><span class="yellow"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="olive" />
+                                    <label class="color" for="olive"><span class="olive"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="orange" />
+                                    <label class="color" for="orange"><span class="orange"></span></label>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center px-0  flex-wrap botones"
@@ -87,11 +98,20 @@
                                     Color
                                 </div>
                                 <div class="value-color">
-                                    <span class="grey" data-color="lightgrey"></span>
-                                    <span class="blue active" data-color="blue"></span>
-                                    <span class="yellow" data-color="yellow"></span>
-                                    <span class="green" data-color="green"></span>
-                                    <span class="red" data-color="red"></span>
+                                    <input type="radio" class="color" name="color" id="red" value="red" />
+                                    <label class="color" for="red"><span class="red"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="green" />
+                                    <label class="color" for="green"><span class="green"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="yellow" />
+                                    <label class="color" for="yellow"><span class="yellow"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="olive" />
+                                    <label class="color" for="olive"><span class="olive"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="orange" />
+                                    <label class="color" for="orange"><span class="orange"></span></label>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center px-0  flex-wrap botones"
@@ -135,12 +155,21 @@
                                 <div class="name name-size">
                                     Color
                                 </div>
-                                <div class="value-color">
-                                    <span class="grey"></span>
-                                    <span class="blue active"></span>
-                                    <span class="yellow"></span>
-                                    <span class="green"></span>
-                                    <span class="red"></span>
+                                <div class="value-color flex-wrap">
+                                    <input type="radio" class="color" name="color" id="red" value="red" />
+                                    <label class="color" for="red"><span class="red"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="green" />
+                                    <label class="color" for="green"><span class="green"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="yellow" />
+                                    <label class="color" for="yellow"><span class="yellow"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="olive" />
+                                    <label class="color" for="olive"><span class="olive"></span></label>
+
+                                    <input type="radio" class="color" name="color" id="orange" />
+                                    <label class="color" for="orange"><span class="orange"></span></label>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center px-0  flex-wrap botones"
