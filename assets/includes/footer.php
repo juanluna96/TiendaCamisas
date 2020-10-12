@@ -11,10 +11,12 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js">
     </script>
     <!-- PUGLINS -->
-    <script src="puglins/Sticky-Mobile-Navigation-GRT-Responsive-Menu/grt-responsive-menu.js"></script>
+    <script src="assets/puglins/Sticky-Mobile-Navigation-GRT-Responsive-Menu/grt-responsive-menu.js"></script>
+    <!-- Labelauty -->
+    <script src="assets\puglins\Labelauty\jquery-labelauty.js"></script>
     <!-- Your custom scripts (optional) -->
-    <script type="text/javascript">
-    </script>
+    <script src="assets\js\ejecucion_puglins.js"></script>
+
     </body>
 
     </html>

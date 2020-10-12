@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design for Bootstrap</title>
+    <title>SHIRT SHOP</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts Roboto -->
@@ -15,18 +15,20 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <!-- PUGLINS -->
-    <link rel="stylesheet" href="puglins/Sticky-Mobile-Navigation-GRT-Responsive-Menu/grt-responsive-menu.css">
+    <link rel="stylesheet" href="assets/puglins/Sticky-Mobile-Navigation-GRT-Responsive-Menu/grt-responsive-menu.css">
+    <!-- Labelauty -->
+    <link rel="stylesheet" href="assets\puglins\Labelauty\jquery-labelauty.css">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 
 <body>
     <!-- HEADER -->
     <header>
         <div class="menu-container">
-            <div class="grt-menu-row">
+            <div class="container-fluid grt-menu-row">
                 <div class="grt-menu-logo">
-                    <a href="#" class="grt-logo"><img src="img/logo_tienda_camisas_sin_fondo.png"></a>
+                    <a href="#" class="grt-logo"><img src="assets/img/logo_tienda_camisas_sin_fondo.png"></a>
                 </div>
                 <div class="grt-menu-right">
                     <nav>
