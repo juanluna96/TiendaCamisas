@@ -13,7 +13,7 @@ $(document).ready(function() {
     /*                                   ICONATE                                  */
     /* -------------------------------------------------------------------------- */
 
-    $('#password').focus(function(e) {
+    $('.password').focus(function(e) {
         e.preventDefault();
         var iconElement = document.getElementById('icon');
         var options = {
@@ -24,7 +24,7 @@ $(document).ready(function() {
         };
         iconate(iconElement, options);
     });
-    $('#password').blur(function(e) {
+    $('.password').blur(function(e) {
         e.preventDefault();
         var iconElement = document.getElementById('icon');
         var options = {
