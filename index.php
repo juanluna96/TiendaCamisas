@@ -1,6 +1,6 @@
-<?php require_once 'views/layout/header.php'; ?>
+<?php require_once "config/parameters.php"; ?>
 <?php require_once "autoload.php"; ?>
-
+<?php require_once 'views/layout/header.php'; ?>
 
 
 
@@ -13,10 +13,18 @@
 /* -------------------------------------------------------------------------- -->
     <div class="productos pr-0 col-12 col-lg-9 mt-3">
         <?php
+
+function mostrar_error() {
+    $error=new ErrorController();
+    $error->index();
+}
+
 if (isset($_GET['controller'])) {
     $nombre_controlador = $_GET['controller'] . 'Controller';
+}elseif (!isset($_GET['controller']) && !isset($_GET['action'])) {
+    $nombre_controlador=controller_default;
 } else {
-    echo "<h1>La pagina que buscas no existe </h1>";
+    mostrar_error();
     exit;
 }
 
@@ -27,12 +35,15 @@ if (isset($nombre_controlador) && class_exists($nombre_controlador)) {
     if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
         $action = $_GET['action'];
         $controlador->$action();
+    }elseif (!isset($_GET['controller']) && !isset($_GET['action'])) {
+        $action_default=action_default;
+        $controlador->$action_default();
     } else {
-        echo "<h1>La pagina que buscas no existe </h1>";
+        mostrar_error();
     }
 
 } else {
-    echo "<h1>La pagina que buscas no existe </h1>";
+    mostrar_error();
 }
 ?>
 
