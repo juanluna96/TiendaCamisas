@@ -19,7 +19,7 @@ header {
     width: 100%;
     background: #FFF;
     height: 60px;
-    z-index: 9999;
+    z-index: 1000;
 }
 
 header.scrolled {
@@ -68,7 +68,7 @@ a.grt-logo img {
 }
 
 ul.grt-menu {
-    display: block;
+    display: flex;
     float: right;
     margin: 0 -10px 0 0;
     padding: 0;
@@ -91,7 +91,7 @@ ul.grt-menu li {
 }
 
 ul.grt-menu li a {
-    padding: 10px 15px;
+    padding: 10px 11px;
     font-size: 21px;
     display: inline-block;
     color: #303030;
@@ -182,9 +182,17 @@ ul.grt-menu li.grt-dropdown.active-dropdown a {
         color: #FFF;
         box-shadow: inset 150px 0 0 0 var(--cyan);
     }
-    ul.grt-menu li a:hover {
+    ul.grt-menu li a:hover:not(.modal) {
         color: #FFF;
         box-shadow: inset 150px 0 0 0 var(--cyan);
+    }
+    a.modal i {
+        position: absolute;
+        bottom: 30px;
+        right: -1px;
+    }
+    a.modal img {
+        max-width: 45px;
     }
 }
 
@@ -246,6 +254,14 @@ ul.grt-menu li.grt-dropdown.active-dropdown a {
         justify-content: center;
         flex-direction: column;
         text-align: center;
+    }
+    a.modal i {
+        position: absolute;
+        bottom: 18px;
+        right: -2px;
+    }
+    a.modal img {
+        max-width: 60px;
     }
     .grt-mobile-button-open {
         position: fixed;
