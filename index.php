@@ -1,8 +1,18 @@
-<?php
+<?php require_once 'views/layout/header.php'; ?>
+<?php require_once "autoload.php"; ?>
 
-require_once "autoload.php";
 
 
+
+<div class="container-fluid mt-5 row pr-0" style="min-height: 100vh;">
+
+    <?php require_once 'views/layout/sidebar.php';?>
+
+    <!---------------------------------------------------------------------------- */
+/*                                    PRODUCTOS                                  */
+/* -------------------------------------------------------------------------- -->
+    <div class="productos pr-0 col-12 col-lg-9 mt-3">
+        <?php
 if (isset($_GET['controller'])) {
     $nombre_controlador = $_GET['controller'] . 'Controller';
 } else {
@@ -25,3 +35,10 @@ if (isset($nombre_controlador) && class_exists($nombre_controlador)) {
     echo "<h1>La pagina que buscas no existe </h1>";
 }
 ?>
+
+    </div>
+</div>
+
+
+
+<?php require_once 'views/layout/footer.php'; ?>

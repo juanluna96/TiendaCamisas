@@ -69,6 +69,7 @@ a.grt-logo img {
 
 ul.grt-menu {
     display: flex;
+    align-items: center;
     float: right;
     margin: 0 -10px 0 0;
     padding: 0;
@@ -188,8 +189,8 @@ ul.grt-menu li.grt-dropdown.active-dropdown a {
     }
     a.modal i {
         position: absolute;
-        bottom: 30px;
-        right: -1px;
+        bottom: -1px;
+        right: -1.5px;
     }
     a.modal img {
         max-width: 45px;
@@ -257,8 +258,8 @@ ul.grt-menu li.grt-dropdown.active-dropdown a {
     }
     a.modal i {
         position: absolute;
-        bottom: 18px;
-        right: -2px;
+        bottom: 14px;
+        right: -4px;
     }
     a.modal img {
         max-width: 60px;
