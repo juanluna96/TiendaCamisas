@@ -41,4 +41,31 @@ $(document).ready(function() {
     /* -------------------------------------------------------------------------- */
 
     $('[data-toggle="tooltip"]').tooltip();
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                         Krajee Bootstrap inputFile                         */
+    /* -------------------------------------------------------------------------- */
+
+    $("#avatar").fileinput({
+        theme: "fa",
+        overwriteInitial: true,
+        maxFileSize: 1500,
+        showClose: false,
+        showCaption: false,
+        browseLabel: '',
+        removeLabel: '',
+        browseIcon: '<i class="fas fa-folder-open"></i>',
+        removeIcon: '<i class="fas fa-trash-alt"></i>',
+        removeTitle: 'Cancel or reset changes',
+        elErrorContainer: '#kv-avatar-errors-1',
+        msgErrorClass: 'alert alert-block alert-danger',
+        defaultPreviewContent: '<img src="' + enlace + '/assets/img/avatar_placeholder.png" style="max-width: 80px" alt="Your Avatar">',
+        layoutTemplates: { main2: '{preview} {remove} {browse}' },
+        allowedFileExtensions: ["jpg", "png", "gif"]
+    });
+
+    $('.btn-file').addClass('btn-block');
+    $('.fileinput-remove').addClass('btn-block mb-2');
+
 });
