@@ -2,13 +2,14 @@
 <?php session_start();?>
 <?php require_once "config/db.php";?>
 <?php require_once "autoload.php";?>
+<?php require_once "helpers/utilidades.php";?>
 <?php require_once 'views/layout/header.php';?>
 
 <?php // Conexion base de datos
 $db=Database::connect();?>
 
 
-<div class="container-fluid mt-5 row pr-0" style="min-height: 100vh;">
+<div class="container-fluid mt-5 row pr-0 contenedor-principal" style="min-height: 100vh;">
 
     <?php require_once 'views/layout/sidebar.php';?>
 
