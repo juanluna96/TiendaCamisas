@@ -2,14 +2,14 @@
 
 class usuario
 {
-    private $__id;
-    private $__nombre;
-    private $__apellidos;
-    private $__email;
-    private $__password;
-    private $__image;
-    private $__rol;
-    private $__db;
+    private $id;
+    private $nombre;
+    private $apellidos;
+    private $email;
+    private $password;
+    private $image;
+    private $rol;
+    private $db;
 
     public function __construct()
     {

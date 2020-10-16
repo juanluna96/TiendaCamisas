@@ -14,7 +14,8 @@
             </div>
             <div class="modal-body">
                 <?php if ($_SESSION["usuario"]->cargo == 'Admin') : ?>
-                <a href="" class="indigo-text"><i class="mr-2 fas fa-tag"></i>Gestionar categorías</a>
+                <a href="<?php echo base_url; ?>/categorias/index" class="indigo-text"><i
+                        class="mr-2 fas fa-tags"></i>Gestionar categorías</a>
                 <hr>
                 <a href="" class="indigo-text"><i class="mr-2 fas fa-tshirt"></i>Gestionar productos</a>
                 <hr>

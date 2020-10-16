@@ -44,9 +44,11 @@
                                 data-img="https://cdn.shopify.com/s/files/1/0254/4543/3424/products/camiseta-morada-con-mensaje-cristiano-todo-lo-puedo-en-cristo-shirt-hoodie-regalosgifts-premium-tee-purple-rush-sml-271837_1024x1024@2x.jpg?v=1581898560" />
                             <label class="color" for="violet"><span class="violet"></span></label>
 
-                            <input type="radio" class="color" name="color" id="black" value="black"
+                            <!-- <input type="radio" class="color" name="color" id="black-1" value="black-1"
+                                style="background-color: #DB2828;"
                                 data-img="https://cdn.shopify.com/s/files/1/0254/4543/3424/products/camiseta-negra-con-mensaje-cristiano-todo-lo-puedo-en-cristo-shirt-hoodie-regalosgifts-premium-tee-black-sml-112944_1024x1024@2x.jpg?v=1581898233" />
-                            <label class="color" for="black"><span class="black"></span></label>
+                            <label class="color" for="black-1"><span class="black-1"
+                                    style="background-color: #DB2828;"></span></label> -->
                         </div>
                     </div>
                     <div class="form-group">

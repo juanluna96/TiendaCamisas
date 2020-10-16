@@ -8,7 +8,7 @@ $(document).ready(function () {
   /* -------------------------------------------------------------------------- */
   $("input[type='radio'][name='color']").click(function () {
     // console.log($('input[name=color]:checked').val());
-    //console.log($(this).attr('data-img'));
+    // console.log($(this).attr('data-img'));
     //console.log($(this).parent());
     var imagen_camiseta = $(this).parents('.caja-producto').find('.img-fluid');
     enlace_color_camiseta = $(this).attr("data-img");

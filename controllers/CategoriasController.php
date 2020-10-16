@@ -1,9 +1,13 @@
-<?php 
+<?php
+
+require_once "models/categoria.php";
+
 class CategoriasController
 {
     public function index()
     {
-        echo "Controlador Categorias, accion index";
+        $categoria = new categoria();
+        $categorias = $categoria->conseguirTodos();
+        require_once "views/categoria/index.php";
     }
 }
-?>
