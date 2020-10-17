@@ -19,4 +19,12 @@ class utilidades
             return true;
         }
     }
+
+    public static function mostrarCategorias()
+    {
+        require_once 'models/categoria.php';
+        $categoria = new categoria();
+        $categorias = $categoria->conseguirTodos();
+        return $categorias;
+    }
 }

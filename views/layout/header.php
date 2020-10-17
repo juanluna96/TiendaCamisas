@@ -18,11 +18,13 @@
     <!-- PUGLINS -->
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/7507f7d910.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="<?php echo base_url; ?>assets/puglins/Sticky-Mobile-Navigation-GRT-Responsive-Menu/grt-responsive-menu.css">
+    <link rel="stylesheet"
+        href="<?php echo base_url; ?>assets/puglins/Sticky-Mobile-Navigation-GRT-Responsive-Menu/grt-responsive-menu.css">
     <!-- Labelauty -->
     <link rel="stylesheet" href="<?php echo base_url; ?>assets\puglins\Labelauty\jquery-labelauty.css">
     <!-- Krajee Bootstrap inputFile -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/css/fileinput.min.css" media="all"
+        rel="stylesheet" type="text/css" />
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="<?php echo base_url; ?>assets/scss/dist/estilos.css">
 </head>
@@ -41,26 +43,30 @@
                 </div>
                 <div class="grt-menu-right">
                     <nav>
-                        <button class="grt-mobile-button"><span class="line1"></span><span class="line2"></span><span class="line3"></span></button>
+                        <button class="grt-mobile-button"><span class="line1"></span><span class="line2"></span><span
+                                class="line3"></span></button>
                         <ul class="grt-menu">
                             <li class="active"><a href="<?php echo base_url; ?>">Inicio</a></li>
                             <li class="grt-dropdown"><a>Categorías</a>
                                 <ul class="grt-dropdown-list">
-                                    <li><a href="">Menu 1</a></li>
-                                    <li><a href="">Menu 2</a></li>
-                                    <li><a href="">Menu 3</a></li>
+                                    <?php $categorias = utilidades::mostrarCategorias(); ?>
+                                    <?php foreach ($categorias as $categoria) : ?>
+                                    <li><a href="#"><?php echo $categoria['nombre']; ?></a></li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </li>
                             <li><a href="">Sobre nosotros</a></li>
                             <li><a href="">Portafolio</a></li>
                             <li><a href=""><i class="fas fa-shopping-cart mr-1"></i>Carrito</a></li>
                             <?php if (isset($_SESSION["usuario"])) : ?>
-                                <li>
-                                    <a data-toggle="modal" data-target="#ajustes" class="pb-0 pt-2 modal">
-                                        <img class="img-fluid rounded-circle" src="<?php echo base_url; ?>assets/img/avatares/<?php echo $_SESSION["usuario"]->image; ?>" alt="">
-                                        <i class="fas fa-cog indigo-text"></i>
-                                    </a>
-                                </li>
+                            <li>
+                                <a data-toggle="modal" data-target="#ajustes" class="pb-0 pt-2 modal">
+                                    <img class="img-fluid rounded-circle"
+                                        src="<?php echo base_url; ?>assets/img/avatares/<?php echo $_SESSION["usuario"]->image; ?>"
+                                        alt="">
+                                    <i class="fas fa-cog indigo-text"></i>
+                                </a>
+                            </li>
                             <?php endif; ?>
                         </ul>
                     </nav>
