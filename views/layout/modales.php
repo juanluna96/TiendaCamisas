@@ -17,7 +17,8 @@
                 <a href="<?php echo base_url; ?>/categorias/index" class="indigo-text"><i
                         class="mr-2 fas fa-tags"></i>Gestionar categorías</a>
                 <hr>
-                <a href="" class="indigo-text"><i class="mr-2 fas fa-tshirt"></i>Gestionar productos</a>
+                <a href="<?php echo base_url ?>/productos/gestion" class="indigo-text"><i
+                        class="mr-2 fas fa-tshirt"></i>Gestionar productos</a>
                 <hr>
                 <a href="" class="indigo-text"><i class="mr-2 fas fa-palette"></i>Gestionar colores</a>
                 <hr>

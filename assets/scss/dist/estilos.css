@@ -1,357 +1,281 @@
 /* -------------------------------------------------------------------------- */
-
-
 /*                           CARDS DE LOS PRODUCTOS                           */
-
-
 /* -------------------------------------------------------------------------- */
-
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 :root {
-    --fuente-productos: "Poppins";
-    --color-primario: #3A64AC;
+  --fuente-productos: "Poppins";
+  --color-primario: #3A64AC;
 }
 
 .container-fluid {
-    font-family: var(--fuente-productos);
+  font-family: var(--fuente-productos);
 }
 
 .md-form i {
-    font-size: 25px !important;
-    line-height: unset !important;
+  font-size: 25px !important;
+  line-height: unset !important;
 }
-
 .md-form i.input-prefix.active {
-    color: var(--color-primario) !important;
+  color: var(--color-primario) !important;
 }
-
 .md-form .prefix.active {
-    color: var(--color-primario) !important;
+  color: var(--color-primario) !important;
 }
-
 .md-form input[type=text]:focus:not([readonly]) {
-    box-shadow: 0 1px 0 0 var(--color-primario) !important;
-    border-bottom: 1px solid var(--color-primario) !important;
+  box-shadow: 0 1px 0 0 var(--color-primario) !important;
+  border-bottom: 1px solid var(--color-primario) !important;
 }
-
-.md-form input[type=text]:focus:not([readonly])+label {
-    color: var(--color-primario) !important;
+.md-form input[type=text]:focus:not([readonly]) + label {
+  color: var(--color-primario) !important;
 }
 
 .caja-producto {
-    position: relative;
-    height: 100%;
-    min-height: 450px;
-    max-width: 100%;
-    background: #fff;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    max-height: 500px;
+  position: relative;
+  height: 100%;
+  min-height: 450px;
+  max-width: 100%;
+  background: #fff;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  max-height: 500px;
 }
-
 .caja-producto:hover {
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
 }
-
 .caja-producto .image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
-
 .caja-producto .image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    transition: all 0.3s ease;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
 }
-
 .caja-producto:hover .image img {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
-
 .caja-producto .card-content {
-    height: 100%;
-    width: 100%;
-    padding: 10px 0;
+  height: 100%;
+  width: 100%;
+  padding: 10px 0;
 }
-
 .caja-producto:hover .card-content .wrapper {
-    bottom: 0px;
+  bottom: 0px;
 }
-
 .caja-producto i {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .wrapper {
-    position: absolute;
-    background-color: #fff;
-    width: 100%;
-    bottom: -500px;
-    left: 0px;
-    padding: 10px 25px;
-    box-shadow: -1px -1px 6px rgba(0, 0, 0, 0.9);
-    transition: all 0.8s ease;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  bottom: -500px;
+  left: 0px;
+  padding: 10px 25px;
+  box-shadow: -1px -1px 6px rgba(0, 0, 0, 0.9);
+  transition: all 0.8s ease;
 }
-
 .wrapper .title {
-    font-size: 20px;
-    font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
-
 .wrapper p {
-    font-size: 17px;
-    color: grey;
+  font-size: 17px;
+  color: grey;
 }
-
 .wrapper .price {
-    color: var(--color-primario);
-    font-size: 18px;
-    font-weight: 600;
+  color: var(--color-primario);
+  font-size: 18px;
+  font-weight: 600;
 }
-
 .wrapper .content {
-    margin: 10px 0;
+  margin: 10px 0;
 }
-
 .wrapper .content .name {
-    font-size: 15px;
-    font-weight: 500;
-    text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .content .value-size {
-    display: flex;
-    width: 75%;
-    margin: 5px 0;
-    justify-content: space-between;
+  display: flex;
+  width: 75%;
+  margin: 5px 0;
+  justify-content: space-between;
 }
-
 .content .value-size span.active {
-    background-color: var(--color-primario);
-    color: #fff;
+  background-color: var(--color-primario);
+  color: #fff;
 }
-
 .content .value-color {
-    display: flex;
-    width: 100%;
-    margin: 10px 0;
-    justify-content: space-between;
+  display: flex;
+  width: 100%;
+  margin: 10px 0;
+  justify-content: space-between;
 }
 
 .btn {
-    font-family: var(--fuente-productos) !important;
-    font-size: 12px;
+  font-family: var(--fuente-productos) !important;
+  font-size: 12px;
 }
 
 .btn-indigo {
-    background-color: var(--color-primario) !important;
+  background-color: var(--color-primario) !important;
 }
-
 
 /* ----------------------- SELECT CON MATERIAL DESIGN ----------------------- */
-
 .custom-select:focus {
-    border-color: var(--color-primario) !important;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 63, 131, 0.39);
+  border-color: var(--color-primario) !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 63, 131, 0.39);
 }
 
-
 /* -------------------------------------------------------------------------- */
-
-
 /*                    SELECTORES (RADIO BOTONES) DE COLORES                   */
-
-
 /* -------------------------------------------------------------------------- */
-
 input[type=radio].color {
-    display: none;
+  display: none;
 }
-
-input[type=radio].color:checked+label span {
-    transform: scale(1.25);
+input[type=radio].color:checked + label span {
+  transform: scale(1.25);
 }
-
-input[type=radio].color:checked+label .red {
-    border: 2px solid #711313;
+input[type=radio].color:checked + label .red {
+  border: 2px solid #711313;
 }
-
-input[type=radio].color:checked+label .orange {
-    border: 2px solid #873a08;
+input[type=radio].color:checked + label .orange {
+  border: 2px solid #873a08;
 }
-
-input[type=radio].color:checked+label .yellow {
-    border: 2px solid #816102;
+input[type=radio].color:checked + label .yellow {
+  border: 2px solid #816102;
 }
-
-input[type=radio].color:checked+label .olive {
-    border: 2px solid #505a0b;
+input[type=radio].color:checked + label .olive {
+  border: 2px solid #505a0b;
 }
-
-input[type=radio].color:checked+label .green {
-    border: 2px solid #0e4e1d;
+input[type=radio].color:checked + label .green {
+  border: 2px solid #0e4e1d;
 }
-
-input[type=radio].color:checked+label .teal {
-    border: 2px solid #003633;
+input[type=radio].color:checked + label .teal {
+  border: 2px solid #003633;
 }
-
-input[type=radio].color:checked+label .blue {
-    border: 2px solid #103f62;
+input[type=radio].color:checked + label .blue {
+  border: 2px solid #103f62;
 }
-
-input[type=radio].color:checked+label .violet {
-    border: 2px solid #321a64;
+input[type=radio].color:checked + label .violet {
+  border: 2px solid #321a64;
 }
-
-input[type=radio].color:checked+label .purple {
-    border: 2px solid #501962;
+input[type=radio].color:checked + label .purple {
+  border: 2px solid #501962;
 }
-
-input[type=radio].color:checked+label .pink {
-    border: 2px solid #851554;
+input[type=radio].color:checked + label .pink {
+  border: 2px solid #851554;
 }
-
-input[type=radio].color:checked+label .black {
-    border: 2px solid black;
+input[type=radio].color:checked + label .black {
+  border: 2px solid black;
 }
 
 label.color {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    cursor: pointer;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  cursor: pointer;
 }
-
 label.color:hover span {
-    transform: scale(1.25);
+  transform: scale(1.25);
 }
-
 label.color span {
-    display: block;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.2s ease-in-out;
-    border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 50%;
 }
-
 label.color span.red {
-    background: #DB2828;
+  background: #DB2828;
 }
-
 label.color span.orange {
-    background: #F2711C;
+  background: #F2711C;
 }
-
 label.color span.yellow {
-    background: #FBBD08;
+  background: #FBBD08;
 }
-
 label.color span.olive {
-    background: #B5CC18;
+  background: #B5CC18;
 }
-
 label.color span.green {
-    background: #21BA45;
+  background: #21BA45;
 }
-
 label.color span.teal {
-    background: #00B5AD;
+  background: #00B5AD;
 }
-
 label.color span.blue {
-    background: #2185D0;
+  background: #2185D0;
 }
-
 label.color span.violet {
-    background: #6435C9;
+  background: #6435C9;
 }
-
 label.color span.purple {
-    background: #A333C8;
+  background: #A333C8;
 }
-
 label.color span.pink {
-    background: #E03997;
+  background: #E03997;
 }
-
 label.color span.black {
-    background: #000000;
+  background: #000000;
 }
 
-
 /* -------------------------------------------------------------------------- */
-
-
 /*                                    MODAL                                   */
-
-
 /* -------------------------------------------------------------------------- */
-
 a.modal {
-    position: relative !important;
-    width: auto;
-    overflow-y: hidden !important;
+  position: relative !important;
+  width: auto;
+  overflow-y: hidden !important;
 }
 
-
 /* -------------------------------------------------------------------------- */
-
-
 /*                                   FOOTER                                   */
-
-
 /* -------------------------------------------------------------------------- */
-
 footer {
-    font-family: var(--fuente-productos);
+  font-family: var(--fuente-productos);
 }
 
-
 /* -------------------------------------------------------------------------- */
-
-
 /*                        COMPLEMENTOS DE OTRAS VISTAS                        */
-
-
 /* -------------------------------------------------------------------------- */
-
-
 /* ------------------------- FORMULARIO DE REGISTRO ------------------------- */
-
 .kv-avatar .krajee-default.file-preview-frame,
 .kv-avatar .krajee-default.file-preview-frame:hover {
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  text-align: center;
 }
 
 .file-drop-zone {
-    border: unset;
-    min-height: unset;
+  border: unset;
+  min-height: unset;
 }
 
 .kv-avatar {
-    display: inline-block;
+  display: inline-block;
 }
 
 .kv-avatar .file-input {
-    display: table-cell;
-    width: 213px;
-    height: 100px;
+  display: table-cell;
+  width: 213px;
+  height: 100px;
 }
 
 .kv-reqd {
-    color: red;
-    font-family: monospace;
-    font-weight: normal;
+  color: red;
+  font-family: monospace;
+  font-weight: normal;
 }

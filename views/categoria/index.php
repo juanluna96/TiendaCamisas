@@ -1,5 +1,5 @@
 <div class="bounceInDown animated slow">
-    <h2 class="text-center">Gestionar categorías</h2>
+    <h2 class="text-center">><i class="mr-2 fas fa-tags indigo-text"></i>Listado de categorías</h2>
     <hr>
 </div>
 
