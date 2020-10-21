@@ -47,15 +47,15 @@ class ProductosController
                 $save = $producto->save();
 
                 if ($save) {
-                    $_SESSION["producto"] = "Exitoso";
+                    $_SESSION["producto"] = "Registro_exitoso";
                 } else {
-                    $_SESSION["producto"] = "Fallido";
+                    $_SESSION["producto"] = "Registro_fallido";
                 }
             } else {
-                $_SESSION["producto"] = "Fallido";
+                $_SESSION["producto"] = "Registro_fallido";
             }
         } else {
-            $_SESSION["producto"] = "Fallido";
+            $_SESSION["producto"] = "Registro_fallido";
         }
         header('location:' . base_url . "productos/gestion");
     }

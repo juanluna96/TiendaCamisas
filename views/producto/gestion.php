@@ -4,6 +4,18 @@
 </div>
 
 <div class="col-12 fadeIn animated slow">
+
+    <?php if (isset($_SESSION["producto"]) && $_SESSION["producto"] = "Registro_exitoso") : ?>
+    <div class="alert alert-success" role="alert">
+        El producto se ha creado correctamente
+    </div>
+    <?php else if (isset($_SESSION["producto"]) && $_SESSION["producto"] = "Registro_fallido") : ?>
+    <div class="alert alert-danger" role="alert">
+        El producto no ha podido ser creado, intente de nuevo
+    </div>
+    <?php endif; ?>
+    <?php utilidades::borrarSession("producto") ?>
+
     <a href="<?php echo base_url ?>productos/crear" type="button" class="btn btn-indigo mx-0">
         <i class="fas fa-plus-square mr-2"></i>Crear nuevo producto
     </a>
