@@ -17,6 +17,7 @@
                 <th class="text-center">Stock</th>
                 <th class="text-center">Tallas</th>
                 <th class="text-center">Colores</th>
+                <th class="text-center">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
                 <td class="text-center">$<?php echo $producto['precio']; ?></td>
                 <td class="text-center"><?php echo $producto['stock']; ?></td>
                 <td>
+                    <?php if (!empty($producto['tallas'])) : ?>
                     <div class="content size">
                         <div class="value-size w-100 justify-content-around">
                             <?php for ($i = 0; $i < COUNT($tallas); $i++) : ?>
@@ -39,8 +41,10 @@
                             <?php endfor; ?>
                         </div>
                     </div>
+                    <?php endif; ?>
                 </td>
                 <td>
+                    <?php if (isset($colores_productos[$producto['id']])) : ?>
                     <div class="content color">
                         <div class="value-color justify-content-around">
                             <?php for ($i = 0; $i < COUNT($colores_productos[$producto['id']]); $i++) : ?>
@@ -53,6 +57,23 @@
                             <?php endfor; ?>
                         </div>
                     </div>
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <div class="row justify-content-center px-2">
+                        <a class="btn btn-unique mx-0 mx-md-1 col-6 col-md-3" href="#" role="button"
+                            data-toggle="tooltip" title="Añadir color">
+                            <i class="fas fa-fill-drip"></i>
+                        </a>
+                        <a class="btn btn-warning mx-0 mx-md-1 col-6 col-md-3" href="#" role="button"
+                            data-toggle="tooltip" title="Añadir talla">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </a>
+                        <a class="btn btn-danger mx-0 mx-md-1 col-12 col-md-3" href="#" role="button"
+                            data-toggle="tooltip" title="Eliminar producto">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -60,12 +81,16 @@
     </table>
 </div>
 
-<?php foreach ($productos as $producto) {
-    for ($i = 0; $i < COUNT($colores_productos[$producto['id']]); $i++) {
-        $nombre_color = $colores_productos[$producto['id']][$i]['color'];
-        $codigo_color = $colores_productos[$producto['id']][$i]['codigo_color'];
-        $color_oscuro = utilidades::oscurecerColor($codigo_color, $darker = 2);
-        echo '<style>label.color span.' . $nombre_color . '{background: ' . $codigo_color . '!important;} </style>';
-        echo '<style>input[type="radio"].color:checked + label .' . $nombre_color . '{border: 2px solid ' . $color_oscuro . '; } </style>';
+<?php
+foreach ($productos as $producto) {
+    if (isset($colores_productos[$producto['id']])) {
+        for ($i = 0; $i < COUNT($colores_productos[$producto['id']]); $i++) {
+            $nombre_color = $colores_productos[$producto['id']][$i]['color'];
+            $codigo_color = $colores_productos[$producto['id']][$i]['codigo_color'];
+            $color_oscuro = utilidades::oscurecerColor($codigo_color, $darker = 2);
+            echo '<style>label.color span.' . $nombre_color . '{background: ' . $codigo_color . '!important;} </style>';
+            echo '<style>input[type="radio"].color:checked + label .' . $nombre_color . '{border: 2px solid ' . $color_oscuro . '; } </style>';
+        }
     }
-} ?>
+}
+?>

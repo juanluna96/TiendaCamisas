@@ -281,3 +281,14 @@ footer {
   font-family: monospace;
   font-weight: normal;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                       BASIC TABLE (Tabla responsive)                       */
+/* -------------------------------------------------------------------------- */
+@media screen and (max-width: 600px) {
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin: 0.625em 0px;
+  }
+}

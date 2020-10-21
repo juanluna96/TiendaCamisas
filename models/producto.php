@@ -53,7 +53,7 @@ class producto
      */
     public function setNombre($nombre)
     {
-        $this->nombre = $nombre;
+        $this->nombre = $this->db->real_escape_string($nombre);
 
         return $this;
     }
@@ -73,7 +73,7 @@ class producto
      */
     public function setDescripcion($descripcion)
     {
-        $this->descripcion = $descripcion;
+        $this->descripcion = $this->db->real_escape_string($descripcion);
 
         return $this;
     }
@@ -93,7 +93,7 @@ class producto
      */
     public function setPrecio($precio)
     {
-        $this->precio = $precio;
+        $this->precio = $this->db->real_escape_string($precio);
 
         return $this;
     }
@@ -113,7 +113,7 @@ class producto
      */
     public function setStock($stock)
     {
-        $this->stock = $stock;
+        $this->stock = $this->db->real_escape_string($stock);
 
         return $this;
     }
@@ -133,7 +133,7 @@ class producto
      */
     public function setOferta($oferta)
     {
-        $this->oferta = $oferta;
+        $this->oferta = $this->db->real_escape_string($oferta);
 
         return $this;
     }
@@ -153,7 +153,7 @@ class producto
      */
     public function setFecha($fecha)
     {
-        $this->fecha = $fecha;
+        $this->fecha = $this->db->real_escape_string($fecha);
 
         return $this;
     }
@@ -173,14 +173,14 @@ class producto
      */
     public function setCategoria_id($categoria_id)
     {
-        $this->categoria_id = $categoria_id;
+        $this->categoria_id = $this->db->real_escape_string($categoria_id);
 
         return $this;
     }
 
     public function conseguirTodos()
     {
-        $sql = "SELECT productos.*, GROUP_CONCAT(tamano) AS tallas FROM productos, tallas_productos,tallas WHERE productos.id=tallas_productos.producto_id AND tallas.id=tallas_productos.talla_id GROUP BY productos.id ORDER BY productos.id ASC";
+        $sql = "SELECT productos.*, GROUP_CONCAT(tamano) AS tallas FROM productos LEFT JOIN tallas_productos ON productos.id=tallas_productos.producto_id LEFT JOIN tallas ON tallas.id=tallas_productos.talla_id GROUP BY productos.id ORDER BY productos.id ASC";
         $productos = $this->db->query($sql);
 
         return $productos;
@@ -200,5 +200,13 @@ class producto
         }
 
         return $array;
+    }
+
+    public function save()
+    {
+        $sql = "INSERT INTO productos VALUES (NULL, '{$this->getNombre()}','{$this->getDescripcion()}','{$this->getPrecio()}','{$this->getStock()}','{$this->getOferta()}', CURDATE() ,'{$this->getCategoria_id()}')";
+        $save = $this->db->query($sql);
+
+        return $save;
     }
 }

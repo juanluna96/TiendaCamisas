@@ -36,6 +36,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/themes/fa/theme.js"></script>
     <!-- Tiny Select Box -->
     <script src="<?php echo base_url; ?>assets/puglins/Tiny_Select_Box/main.js"></script>
+    <!-- Jquery-price-format -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-price-format/2.2.0/jquery.priceformat.min.js"
+        integrity="sha512-qHlEL6N+fxDGsJoPhq/jFcxJkRURgMerSFixe39WoYaB2oj91lvJXYDVyEO1+tOuWO+sBtUGHhl3v3hUp1tGMA=="
+        crossorigin="anonymous"></script>
+    <!-- BASIC TABLE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.basictable/1.1.0/jquery.basictable.min.js"
+        integrity="sha512-w4TTuZoB6xAKBKrEIrFx6ew+FPNJqAAMUCgk2czI9VVIvlRzzw54ScuajmB+THlVdfxbnTwbyo/mVo1Y013wnw=="
+        crossorigin="anonymous"></script>
     <!-- Your custom scripts (optional) -->
     <script src="<?php echo base_url; ?>assets\js\ejecucion_puglins.js"></script>
     <script src="<?php echo base_url; ?>assets\js\main.js"></script>

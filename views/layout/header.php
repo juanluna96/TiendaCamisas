@@ -27,6 +27,10 @@
         rel="stylesheet" type="text/css" />
     <!-- Tiny Select Box -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url; ?>assets\puglins\Tiny_Select_Box\style.css">
+    <!-- BASIC TABLE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.basictable/1.1.0/basictable.css"
+        integrity="sha512-9dSIGfHfnJRuJT/m92iHPvFT2ZTzVwzhG/nNyqUDA+tXCro39TX70VgRJ5O2bD64nywyiTUWtSG1JthOfjUV2w=="
+        crossorigin="anonymous" />
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="<?php echo base_url; ?>assets/scss/dist/estilos.css">
 

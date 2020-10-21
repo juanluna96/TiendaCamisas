@@ -1,5 +1,5 @@
 <div class="bounceInDown animated slow">
-    <h2 class="text-center">><i class="mr-2 fas fa-tags indigo-text"></i>Listado de categorías</h2>
+    <h2 class="text-center"><i class="mr-2 fas fa-tags indigo-text"></i>Listado de categorías</h2>
     <hr>
 </div>
 
@@ -11,14 +11,14 @@
         <thead class="indigo thead-default text-white">
             <tr class="rounded-top">
                 <th>#</th>
-                <th>Categoría</th>
+                <th class="text-center">Categoría</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($categorias as $categoria) : ?>
             <tr>
                 <td scope="row"><?php echo $categoria['id']; ?></td>
-                <td><?php echo $categoria['nombre']; ?></td>
+                <td class="text-center"><?php echo $categoria['nombre']; ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>

@@ -84,4 +84,15 @@ $(document).ready(function () {
     fillable: !0,
     searchable: !0
   });
+  /* -------------------------------------------------------------------------- */
+
+  /*                             Jquery-price-format                            */
+
+  /* -------------------------------------------------------------------------- */
+
+  $('#precio').priceFormat({
+    prefix: 'COP$ ',
+    thousandsSeparator: '.'
+  });
+  $('table').basictable();
 });
