@@ -15,6 +15,16 @@
                         <div class="name name-size">
                             Talla
                         </div>
+                        <div class="form-group">
+                            <div class="select" id="el1">
+                                <i class="fas fa-angle-down"></i>
+                                <select name="select" id="select">
+                                    <option value="" selected="" disabled>Selecciona tu sexo</option>
+                                    <option value="1">Hombre</option>
+                                    <option value="2">Mujer</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="value-size">
                             <input class="radio-buttons" name="talla" type="radio" data-labelauty="XS|XS" />
                             <input class="radio-buttons" name="talla" type="radio" data-labelauty="S|S" checked />
@@ -51,14 +61,7 @@
                                     style="background-color: #DB2828;"></span></label> -->
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="">Selecciona un sexo</label>
-                        <select class="custom-select" name="" id="">
-                            <option selected disabled></option>
-                            <option value="">Masculino</option>
-                            <option value="">Femenino</option>
-                        </select>
-                    </div>
+
                     <div class="d-flex justify-content-between align-items-center px-0  flex-wrap botones" role="group"
                         aria-label="Button group">
                         <button class="btn btn-indigo flex-grow-1 mx-1" type="button">Buy now</button>

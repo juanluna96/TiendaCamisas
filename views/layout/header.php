@@ -25,8 +25,11 @@
     <!-- Krajee Bootstrap inputFile -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/css/fileinput.min.css" media="all"
         rel="stylesheet" type="text/css" />
+    <!-- Tiny Select Box -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url; ?>assets\puglins\Tiny_Select_Box\style.css">
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="<?php echo base_url; ?>assets/scss/dist/estilos.css">
+
 </head>
 
 <body>

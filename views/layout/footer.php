@@ -3,7 +3,7 @@
 /* ---------------------------------------------------------------------------->
 
     <footer class="page-footer font-small indigo darken-1 pt-4 ">
-        <div class="footer-copyright text-center py-3">© <?php echo date('Y')?> Copyright:
+        <div class="footer-copyright text-center py-3">© <?php echo date('Y') ?> Copyright:
             <a href="#"> Juan Diego Luna</a>
         </div>
     </footer>
@@ -21,10 +21,10 @@
     </script>
     <!-- PUGLINS -->
     <script
-        src="<?php echo base_url;?>assets/puglins/Sticky-Mobile-Navigation-GRT-Responsive-Menu/grt-responsive-menu.js">
+        src="<?php echo base_url; ?>assets/puglins/Sticky-Mobile-Navigation-GRT-Responsive-Menu/grt-responsive-menu.js">
     </script>
     <!-- Labelauty -->
-    <script src="<?php echo base_url;?>assets\puglins\Labelauty\jquery-labelauty.js"></script>
+    <script src="<?php echo base_url; ?>assets\puglins\Labelauty\jquery-labelauty.js"></script>
     <!-- Iconate -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iconate/0.2.2/iconate.min.js"></script>
     <!-- Krajee Bootstrap inputFile -->
@@ -34,9 +34,11 @@
         type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/js/fileinput.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/themes/fa/theme.js"></script>
+    <!-- Tiny Select Box -->
+    <script src="<?php echo base_url; ?>assets/puglins/Tiny_Select_Box/main.js"></script>
     <!-- Your custom scripts (optional) -->
-    <script src="<?php echo base_url;?>assets\js\ejecucion_puglins.js"></script>
-    <script src="<?php echo base_url;?>assets\js\main.js"></script>
+    <script src="<?php echo base_url; ?>assets\js\ejecucion_puglins.js"></script>
+    <script src="<?php echo base_url; ?>assets\js\main.js"></script>
     </body>
 
     </html>

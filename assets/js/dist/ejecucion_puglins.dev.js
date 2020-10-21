@@ -73,4 +73,15 @@ $(document).ready(function () {
   });
   $('.btn-file').addClass('btn-block');
   $('.fileinput-remove').addClass('btn-block mb-2');
+  /* -------------------------------------------------------------------------- */
+
+  /*                               Tiny_Select_Box                              */
+
+  /* -------------------------------------------------------------------------- */
+
+  $(".select").jselect_search({
+    placeholder: 'Buscar',
+    fillable: !0,
+    searchable: !0
+  });
 });

@@ -20,4 +20,18 @@ class ProductosController
 
         require_once 'views/producto/gestion.php';
     }
+
+    public function crear()
+    {
+        utilidades::ValidarAdmin();
+        require_once "views/producto/crear.php";
+    }
+
+    public function guardar()
+    {
+        utilidades::ValidarAdmin();
+        if (isset($_POST)) {
+            var_dump($_POST);
+        }
+    }
 }
