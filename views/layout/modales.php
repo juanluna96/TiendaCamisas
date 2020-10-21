@@ -14,13 +14,14 @@
             </div>
             <div class="modal-body">
                 <?php if ($_SESSION["usuario"]->cargo == 'Admin') : ?>
-                <a href="<?php echo base_url; ?>/categorias/index" class="indigo-text"><i
+                <a href="<?php echo base_url; ?>categorias/index" class="indigo-text"><i
                         class="mr-2 fas fa-tags"></i>Gestionar categorías</a>
                 <hr>
-                <a href="<?php echo base_url ?>/productos/gestion" class="indigo-text"><i
+                <a href="<?php echo base_url ?>productos/gestion" class="indigo-text"><i
                         class="mr-2 fas fa-tshirt"></i>Gestionar productos</a>
                 <hr>
-                <a href="" class="indigo-text"><i class="mr-2 fas fa-palette"></i>Gestionar colores</a>
+                <a href="<?php echo base_url ?>colores/index" class="indigo-text"><i
+                        class="mr-2 fas fa-palette"></i>Gestionar colores</a>
                 <hr>
                 <a href="" class="indigo-text"><i class="mr-2 fas fa-ruler-combined"></i>Gestionar tallas</a>
                 <?php elseif ($_SESSION["usuario"]->cargo == 'Cliente') : ?>
