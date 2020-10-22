@@ -2,8 +2,7 @@
 /*                           MODAL AJUSTES Y OPCIONES                             */
 /* -------------------------------------------------------------------------- -->
 
-<div class="modal fade mt-5" id="ajustes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade mt-5" id="ajustes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -14,24 +13,20 @@
             </div>
             <div class="modal-body">
                 <?php if ($_SESSION["usuario"]->cargo == 'Admin') : ?>
-                <a href="<?php echo base_url; ?>categorias/index" class="indigo-text"><i
-                        class="mr-2 fas fa-tags"></i>Gestionar categorías</a>
-                <hr>
-                <a href="<?php echo base_url ?>productos/gestion" class="indigo-text"><i
-                        class="mr-2 fas fa-tshirt"></i>Gestionar productos</a>
-                <hr>
-                <a href="<?php echo base_url ?>colores/index" class="indigo-text"><i
-                        class="mr-2 fas fa-palette"></i>Gestionar colores</a>
-                <hr>
-                <a href="" class="indigo-text"><i class="mr-2 fas fa-ruler-combined"></i>Gestionar tallas</a>
+                    <a href="<?php echo base_url; ?>categorias/index" class="indigo-text"><i class="mr-2 fas fa-tags"></i>Gestionar categorías</a>
+                    <hr>
+                    <a href="<?php echo base_url ?>productos/gestion" class="indigo-text"><i class="mr-2 fas fa-tshirt"></i>Gestionar productos</a>
+                    <hr>
+                    <a href="<?php echo base_url ?>colores/index" class="indigo-text"><i class="mr-2 fas fa-palette"></i>Gestionar colores</a>
+                    <hr>
+                    <a href="<?php echo base_url ?>tallas/index" class="indigo-text"><i class="mr-2 fas fa-ruler-combined"></i>Gestionar tallas</a>
                 <?php elseif ($_SESSION["usuario"]->cargo == 'Cliente') : ?>
-                <a href="" class="indigo-text"><i class="mr-2 fas fa-truck-moving"></i>Visualizar pedidos</a>
-                <hr>
-                <a href="" class="indigo-text"><i class="mr-2 fas fa-tools"></i>Modificar perfil</a>
+                    <a href="" class="indigo-text"><i class="mr-2 fas fa-truck-moving"></i>Visualizar pedidos</a>
+                    <hr>
+                    <a href="" class="indigo-text"><i class="mr-2 fas fa-tools"></i>Modificar perfil</a>
                 <?php endif; ?>
                 <hr>
-                <a href="<?php echo base_url; ?>/usuarios/logout" class="indigo-text"><i
-                        class="mr-2 fas fa-window-close"></i>Cerrar sesión</a>
+                <a href="<?php echo base_url; ?>/usuarios/logout" class="indigo-text"><i class="mr-2 fas fa-window-close"></i>Cerrar sesión</a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -45,8 +40,7 @@
 /* -------------------------------------------------------------------------- -->
 
 <!-- Modal -->
-<div class="modal fade" id="recuperar_password" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="recuperar_password" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
