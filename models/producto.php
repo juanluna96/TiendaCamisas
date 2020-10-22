@@ -186,6 +186,14 @@ class producto
         return $productos;
     }
 
+    public function conseguirUno()
+    {
+        $sql = "SELECT * FROM productos WHERE id={$this->getId()}";
+        $productos = $this->db->query($sql);
+
+        return $productos;
+    }
+
     public function obtenerColores()
     {
         $productos = $this->conseguirTodos();
@@ -210,11 +218,19 @@ class producto
         return $save;
     }
 
-    public function borrar()
+    public function delete()
     {
-        $sql = "DELETE productos WHERE id='{$this->getId()}'";
+        $sql = "DELETE FROM productos WHERE id={$this->getId()}";
         $delete = $this->db->query($sql);
 
         return $delete;
+    }
+
+    public function edit()
+    {
+        $sql = "UPDATE `productos` SET `nombre`='{$this->getNombre()}',`descripcion`='{$this->getDescripcion()}',`precio`='{$this->getPrecio()}',`stock`='{$this->getStock()}',`oferta`='{$this->getOferta()}',`fecha`=CURDATE(),`categoria_id`='{$this->getCategoria_id()}' WHERE id={$this->getId()}";
+        $edit = $this->db->query($sql);
+
+        return $edit;
     }
 }

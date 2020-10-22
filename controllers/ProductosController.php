@@ -17,7 +17,6 @@ class ProductosController
 
         $colores_productos = $modelo_producto->obtenerColores();
 
-
         require_once 'views/producto/gestion.php';
     }
 
@@ -77,18 +76,69 @@ class ProductosController
     public function editar()
     {
         utilidades::ValidarAdmin();
+
         if (isset($_GET["producto_id"])) {
+            $editar = true;
+            $id = $_GET['producto_id'];
+
+            $producto = new producto();
+            $producto->setId($id);
+            $productos = $producto->conseguirUno();
+
+            $producto_ind = '';
+            foreach ($productos as $producto) {
+                $producto_ind = $producto;
+            }
+
+            require_once "views/producto/crear.php";
+        } else {
+            header('location:' . base_url . "productos/gestion");
         }
-        require_once "views/producto/editar.php";
     }
-    public function borrar()
+
+    public function edit()
+    {
+        utilidades::ValidarAdmin();
+        if (isset($_POST)) {
+            $id = $_GET['producto_id'];
+            $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : false;
+            $descripcion = isset($_POST["descripcion"]) ? $_POST["descripcion"] : false;
+            $precio = isset($_POST["precio"]) ? str_replace(".", "", substr($_POST["precio"], 5, -3))  : false;
+            $stock = isset($_POST["stock"]) ? $_POST["stock"] : false;
+            $categoria = isset($_POST["categoria"]) ? $_POST["categoria"] : false;
+            if ($id && $nombre && $descripcion && $precio && $stock && $categoria) {
+                $producto = new producto();
+                $producto->setId($id);
+                $producto->setNombre($nombre);
+                $producto->setDescripcion($descripcion);
+                $producto->setPrecio($precio);
+                $producto->setStock($stock);
+                $producto->setCategoria_id($categoria);
+
+                $edit = $producto->edit();
+
+                if ($edit) {
+                    $_SESSION["edicion"] = "Edicion_exitosa";
+                } else {
+                    $_SESSION["edicion"] = "Edicion_fallida";
+                }
+            } else {
+                $_SESSION["edicion"] = "Edicion_fallida";
+            }
+        } else {
+            $_SESSION["edicion"] = "Edicion_fallida";
+        }
+        header('location:' . base_url . "productos/gestion");
+    }
+
+    public function eliminar()
     {
         utilidades::ValidarAdmin();
         if (isset($_GET["producto_id"])) {
             $id = $_GET['producto_id'];
             $producto = new producto();
             $producto->setId($id);
-            $delete = $producto->borrar();
+            $delete = $producto->delete();
 
             if ($delete) {
                 $_SESSION["borrado"] = "Borrado_exitoso";

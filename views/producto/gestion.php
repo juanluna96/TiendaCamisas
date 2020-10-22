@@ -6,26 +6,37 @@
 <div class="col-12 fadeIn animated slow">
 
     <?php if (isset($_SESSION["producto"]) && $_SESSION["producto"] == "Registro_exitoso") : ?>
-    <div class="alert alert-success" role="alert">
-        El producto se ha creado correctamente
-    </div>
+        <div class="alert alert-success" role="alert">
+            El producto se ha creado correctamente
+        </div>
     <?php elseif (isset($_SESSION["producto"]) && $_SESSION["producto"] == "Registro_fallido") : ?>
-    <div class="alert alert-danger" role="alert">
-        El producto no ha podido ser creado, intente de nuevo
-    </div>
+        <div class="alert alert-danger" role="alert">
+            El producto no ha podido ser creado, intente de nuevo
+        </div>
     <?php endif; ?>
     <?php utilidades::borrarSession("producto") ?>
 
     <?php if (isset($_SESSION["borrado"]) && $_SESSION["borrado"] == "Borrado_exitoso") : ?>
-    <div class="alert alert-success" role="alert">
-        El producto se ha borrado correctamente
-    </div>
+        <div class="alert alert-success" role="alert">
+            El producto se ha borrado correctamente
+        </div>
     <?php elseif (isset($_SESSION["borrado"]) && $_SESSION["borrado"] == "Borrado_fallido") : ?>
-    <div class="alert alert-danger" role="alert">
-        El producto no ha podido ser eliminado, intente de nuevo
-    </div>
+        <div class="alert alert-danger" role="alert">
+            El producto no ha podido ser eliminado, intente de nuevo
+        </div>
     <?php endif; ?>
     <?php utilidades::borrarSession("borrado") ?>
+
+    <?php if (isset($_SESSION["edicion"]) && $_SESSION["edicion"] == "Edicion_exitosa") : ?>
+        <div class="alert alert-success" role="alert">
+            El producto se ha edicion correctamente
+        </div>
+    <?php elseif (isset($_SESSION["edicion"]) && $_SESSION["edicion"] == "Edicion_fallida") : ?>
+        <div class="alert alert-danger" role="alert">
+            El producto no ha podido ser eliminado, intente de nuevo
+        </div>
+    <?php endif; ?>
+    <?php utilidades::borrarSession("edicion") ?>
 
     <a href="<?php echo base_url ?>productos/crear" type="button" class="btn btn-indigo mx-0">
         <i class="fas fa-plus-square mr-2"></i>Crear nuevo producto
@@ -45,68 +56,55 @@
         </thead>
         <tbody>
             <?php foreach ($productos as $producto) : ?>
-            <?php
+                <?php
                 $tallas = explode(',', $producto['tallas']);
                 ?>
-            <tr>
-                <td class="text-center" scope="row"><?php echo $producto['id']; ?></td>
-                <td class="text-center"><?php echo $producto['nombre']; ?></td>
-                <td class="text-center"></td>
-                <td class="text-center">$<?php echo $producto['precio']; ?></td>
-                <td class="text-center"><?php echo $producto['stock']; ?></td>
-                <td>
-                    <?php if (!empty($producto['tallas'])) : ?>
-                    <div class="content size">
-                        <div class="value-size w-100 justify-content-around">
-                            <?php for ($i = 0; $i < COUNT($tallas); $i++) : ?>
-                            <input class="radio-buttons" name="talla" type="radio"
-                                data-labelauty="<?php echo $tallas[$i]; ?>|<?php echo $tallas[$i]; ?>" />
-                            <?php endfor; ?>
+                <tr>
+                    <td class="text-center" scope="row"><?php echo $producto['id']; ?></td>
+                    <td class="text-center"><?php echo $producto['nombre']; ?></td>
+                    <td class="text-center"></td>
+                    <td class="text-center">$<?php echo $producto['precio']; ?></td>
+                    <td class="text-center"><?php echo $producto['stock']; ?></td>
+                    <td>
+                        <?php if (!empty($producto['tallas'])) : ?>
+                            <div class="content size">
+                                <div class="value-size w-100 justify-content-around">
+                                    <?php for ($i = 0; $i < COUNT($tallas); $i++) : ?>
+                                        <input class="radio-buttons" name="talla" type="radio" data-labelauty="<?php echo $tallas[$i]; ?>|<?php echo $tallas[$i]; ?>" />
+                                    <?php endfor; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if (isset($colores_productos[$producto['id']])) : ?>
+                            <div class="content color">
+                                <div class="value-color justify-content-around">
+                                    <?php for ($i = 0; $i < COUNT($colores_productos[$producto['id']]); $i++) : ?>
+                                        <input type="radio" class="color" name="color" id="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>" value="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>" />
+                                        <label class="color" for="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>"><span class="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>"></span></label>
+                                    <?php endfor; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <div class="row justify-content-center px-2">
+                            <a class="btn btn-unique mx-0 mx-md-1 col-6 col-md-2" href="<?= base_url ?>productos/anadir_color&producto_id=<?= $producto['id'] ?>" role="button" data-toggle="tooltip" title="Añadir color">
+                                <i class="fas fa-fill-drip"></i>
+                            </a>
+                            <a class="btn btn-info mx-0 mx-md-1 col-6 col-md-2" href="<?= base_url ?>productos/anadir_talla&producto_id=<?= $producto['id'] ?>" role="button" data-toggle="tooltip" title="Añadir talla">
+                                <i class="fas fa-ruler"></i>
+                            </a>
+                            <a class="btn btn-warning mx-0 mx-md-1 col-6 col-md-2" href="<?= base_url ?>productos/editar&producto_id=<?= $producto['id'] ?>" role="button" data-toggle="tooltip" title="Editar producto">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="btn btn-danger mx-0 mx-md-1 col-6 col-md-2" href="<?= base_url ?>productos/eliminar&producto_id=<?= $producto['id'] ?>" role="button" data-toggle="tooltip" title="Eliminar producto">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
                         </div>
-                    </div>
-                    <?php endif; ?>
-                </td>
-                <td>
-                    <?php if (isset($colores_productos[$producto['id']])) : ?>
-                    <div class="content color">
-                        <div class="value-color justify-content-around">
-                            <?php for ($i = 0; $i < COUNT($colores_productos[$producto['id']]); $i++) : ?>
-                            <input type="radio" class="color" name="color"
-                                id="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>"
-                                value="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>" />
-                            <label class="color"
-                                for="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>"><span
-                                    class="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>"></span></label>
-                            <?php endfor; ?>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-                </td>
-                <td>
-                    <div class="row justify-content-center px-2">
-                        <a class="btn btn-unique mx-0 mx-md-1 col-6 col-md-2"
-                            href="<?= base_url ?>productos/anadir_color&producto_id=<?= $producto['id'] ?>"
-                            role="button" data-toggle="tooltip" title="Añadir color">
-                            <i class="fas fa-fill-drip"></i>
-                        </a>
-                        <a class="btn btn-info mx-0 mx-md-1 col-6 col-md-2"
-                            href="<?= base_url ?>productos/anadir_talla&producto_id=<?= $producto['id'] ?>"
-                            role="button" data-toggle="tooltip" title="Añadir talla">
-                            <i class="fas fa-ruler"></i>
-                        </a>
-                        <a class="btn btn-warning mx-0 mx-md-1 col-6 col-md-2"
-                            href="<?= base_url ?>productos/editar&producto_id=<?= $producto['id'] ?>" role="button"
-                            data-toggle="tooltip" title="Editar producto">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <a class="btn btn-danger mx-0 mx-md-1 col-6 col-md-2"
-                            href="<?= base_url ?>productos/eliminar&producto_id=<?= $producto['id'] ?>" role="button"
-                            data-toggle="tooltip" title="Eliminar producto">
-                            <i class="far fa-trash-alt"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
