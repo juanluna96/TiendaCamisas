@@ -44,6 +44,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.basictable/1.1.0/jquery.basictable.min.js"
         integrity="sha512-w4TTuZoB6xAKBKrEIrFx6ew+FPNJqAAMUCgk2czI9VVIvlRzzw54ScuajmB+THlVdfxbnTwbyo/mVo1Y013wnw=="
         crossorigin="anonymous"></script>
+    <!-- jQuery MiniColors Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.3.5/jquery.minicolors.min.js"
+        integrity="sha512-FVnzYpPeG7mAH2iLD3T+pXpsBTUwF0Ea9C7sL85QLzF/GVDMDStSLUYiWl1Vuz5pe69LJCy7pFTtSEEIhVj/FQ=="
+        crossorigin="anonymous"></script>
     <!-- Your custom scripts (optional) -->
     <script src="<?php echo base_url; ?>assets\js\ejecucion_puglins.js"></script>
     <script src="<?php echo base_url; ?>assets\js\main.js"></script>

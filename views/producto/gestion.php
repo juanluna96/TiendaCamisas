@@ -5,11 +5,11 @@
 
 <div class="col-12 fadeIn animated slow">
 
-    <?php if (isset($_SESSION["producto"]) && $_SESSION["producto"] = "Registro_exitoso") : ?>
+    <?php if (isset($_SESSION["producto"]) && $_SESSION["producto"] == "Registro_exitoso") : ?>
     <div class="alert alert-success" role="alert">
         El producto se ha creado correctamente
     </div>
-    <?php else if (isset($_SESSION["producto"]) && $_SESSION["producto"] = "Registro_fallido") : ?>
+    <?php elseif (isset($_SESSION["producto"]) && $_SESSION["producto"] == "Registro_fallido") : ?>
     <div class="alert alert-danger" role="alert">
         El producto no ha podido ser creado, intente de nuevo
     </div>
@@ -22,7 +22,7 @@
     <table class="table table-striped table-inverse">
         <thead class="indigo thead-default text-white">
             <tr class="rounded-top">
-                <th class="text-center">#</th>
+                <th class="text-center">N° </th>
                 <th class="text-center">Nombre producto</th>
                 <th class="text-center">Imagen</th>
                 <th class="text-center">Precio</th>

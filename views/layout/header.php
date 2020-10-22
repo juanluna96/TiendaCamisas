@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.basictable/1.1.0/basictable.css"
         integrity="sha512-9dSIGfHfnJRuJT/m92iHPvFT2ZTzVwzhG/nNyqUDA+tXCro39TX70VgRJ5O2bD64nywyiTUWtSG1JthOfjUV2w=="
         crossorigin="anonymous" />
+    <!-- jQuery MiniColors Plugin -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.3.5/jquery.minicolors.min.css"
+        integrity="sha512-0jYrW0Fs5LLt+7sTBtP32vdsuTDL/Bk4XVQXn7zDscm8HnPvUoTDX8vPmC/Crr89U27V9jXp8s3aPKb9aTu/iQ=="
+        crossorigin="anonymous" />
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="<?php echo base_url; ?>assets/scss/dist/estilos.css">
 
