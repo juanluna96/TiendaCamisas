@@ -53,8 +53,8 @@ input.labelauty+label {
     -webkit-user-select: none;
     -o-user-select: none;
     font-family: var(--fuente-productos);
-    height: 28px;
-    width: 28px;
+    height: 30px;
+    width: 30px;
     text-align: center;
     font-weight: 500;
     border-radius: 50%;

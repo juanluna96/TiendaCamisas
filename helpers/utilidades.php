@@ -44,4 +44,17 @@ class utilidades
 
         return $hash . $R . $G . $B;
     }
+
+    public static function AlertOperacion($nombre_controlador, $nombre_operacion)
+    {
+        if (isset($_SESSION["$nombre_controlador"]) && $_SESSION["$nombre_controlador"] == '' . $nombre_operacion . '_exitoso') {
+            echo '<div class="alert alert-success" role="alert">';
+            echo "El $nombre_controlador se ha " . $nombre_operacion . " correctamente";
+            echo "</div>";
+        } elseif (isset($_SESSION["$nombre_controlador"]) && $_SESSION["$nombre_controlador"] == '' . $nombre_operacion . '_fallido') {
+            echo '<div class="alert alert-danger" role="alert">';
+            echo "El $nombre_controlador no ha podido ser " . $nombre_operacion . ", intente de nuevo";
+            echo "</div>";
+        }
+    }
 }
