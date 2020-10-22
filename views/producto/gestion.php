@@ -16,6 +16,17 @@
     <?php endif; ?>
     <?php utilidades::borrarSession("producto") ?>
 
+    <?php if (isset($_SESSION["borrado"]) && $_SESSION["borrado"] == "Borrado_exitoso") : ?>
+    <div class="alert alert-success" role="alert">
+        El producto se ha borrado correctamente
+    </div>
+    <?php elseif (isset($_SESSION["borrado"]) && $_SESSION["borrado"] == "Borrado_fallido") : ?>
+    <div class="alert alert-danger" role="alert">
+        El producto no ha podido ser eliminado, intente de nuevo
+    </div>
+    <?php endif; ?>
+    <?php utilidades::borrarSession("borrado") ?>
+
     <a href="<?php echo base_url ?>productos/crear" type="button" class="btn btn-indigo mx-0">
         <i class="fas fa-plus-square mr-2"></i>Crear nuevo producto
     </a>
@@ -73,15 +84,23 @@
                 </td>
                 <td>
                     <div class="row justify-content-center px-2">
-                        <a class="btn btn-unique mx-0 mx-md-1 col-6 col-md-3" href="#" role="button"
-                            data-toggle="tooltip" title="Añadir color">
+                        <a class="btn btn-unique mx-0 mx-md-1 col-6 col-md-2"
+                            href="<?= base_url ?>productos/anadir_color&producto_id=<?= $producto['id'] ?>"
+                            role="button" data-toggle="tooltip" title="Añadir color">
                             <i class="fas fa-fill-drip"></i>
                         </a>
-                        <a class="btn btn-warning mx-0 mx-md-1 col-6 col-md-3" href="#" role="button"
-                            data-toggle="tooltip" title="Añadir talla">
-                            <i class="fas fa-pencil-ruler"></i>
+                        <a class="btn btn-info mx-0 mx-md-1 col-6 col-md-2"
+                            href="<?= base_url ?>productos/anadir_talla&producto_id=<?= $producto['id'] ?>"
+                            role="button" data-toggle="tooltip" title="Añadir talla">
+                            <i class="fas fa-ruler"></i>
                         </a>
-                        <a class="btn btn-danger mx-0 mx-md-1 col-12 col-md-3" href="#" role="button"
+                        <a class="btn btn-warning mx-0 mx-md-1 col-6 col-md-2"
+                            href="<?= base_url ?>productos/editar&producto_id=<?= $producto['id'] ?>" role="button"
+                            data-toggle="tooltip" title="Editar producto">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger mx-0 mx-md-1 col-6 col-md-2"
+                            href="<?= base_url ?>productos/eliminar&producto_id=<?= $producto['id'] ?>" role="button"
                             data-toggle="tooltip" title="Eliminar producto">
                             <i class="far fa-trash-alt"></i>
                         </a>

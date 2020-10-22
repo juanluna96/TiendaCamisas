@@ -209,4 +209,12 @@ class producto
 
         return $save;
     }
+
+    public function borrar()
+    {
+        $sql = "DELETE productos WHERE id='{$this->getId()}'";
+        $delete = $this->db->query($sql);
+
+        return $delete;
+    }
 }

@@ -59,4 +59,46 @@ class ProductosController
         }
         header('location:' . base_url . "productos/gestion");
     }
+
+    public function anadir_color()
+    {
+        utilidades::ValidarAdmin();
+        if (isset($_GET["producto_id"])) {
+        }
+        require_once "views/producto/anadir_color.php";
+    }
+    public function anadir_talla()
+    {
+        utilidades::ValidarAdmin();
+        if (isset($_GET["producto_id"])) {
+        }
+        require_once "views/producto/anadir_talla.php";
+    }
+    public function editar()
+    {
+        utilidades::ValidarAdmin();
+        if (isset($_GET["producto_id"])) {
+        }
+        require_once "views/producto/editar.php";
+    }
+    public function borrar()
+    {
+        utilidades::ValidarAdmin();
+        if (isset($_GET["producto_id"])) {
+            $id = $_GET['producto_id'];
+            $producto = new producto();
+            $producto->setId($id);
+            $delete = $producto->borrar();
+
+            if ($delete) {
+                $_SESSION["borrado"] = "Borrado_exitoso";
+            } else {
+                $_SESSION["borrado"] = "Borrado_fallido";
+            }
+        } else {
+            $_SESSION["borrado"] = "Borrado_fallido";
+        }
+
+        header('location:' . base_url . 'productos/gestion');
+    }
 }
