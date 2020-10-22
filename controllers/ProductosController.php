@@ -46,15 +46,15 @@ class ProductosController
                 $save = $producto->save();
 
                 if ($save) {
-                    $_SESSION["producto"] = "Registro_exitoso";
+                    $_SESSION["producto"] = "registrado_exitoso";
                 } else {
-                    $_SESSION["producto"] = "Registro_fallido";
+                    $_SESSION["producto"] = "registrado_fallido";
                 }
             } else {
-                $_SESSION["producto"] = "Registro_fallido";
+                $_SESSION["producto"] = "registrado_fallido";
             }
         } else {
-            $_SESSION["producto"] = "Registro_fallido";
+            $_SESSION["producto"] = "registrado_fallido";
         }
         header('location:' . base_url . "productos/gestion");
     }
@@ -118,15 +118,15 @@ class ProductosController
                 $edit = $producto->edit();
 
                 if ($edit) {
-                    $_SESSION["edicion"] = "Edicion_exitosa";
+                    $_SESSION["producto"] = "editado_exitoso";
                 } else {
-                    $_SESSION["edicion"] = "Edicion_fallida";
+                    $_SESSION["producto"] = "editado_fallido";
                 }
             } else {
-                $_SESSION["edicion"] = "Edicion_fallida";
+                $_SESSION["producto"] = "editado_fallida";
             }
         } else {
-            $_SESSION["edicion"] = "Edicion_fallida";
+            $_SESSION["producto"] = "editado_fallida";
         }
         header('location:' . base_url . "productos/gestion");
     }
@@ -141,12 +141,12 @@ class ProductosController
             $delete = $producto->delete();
 
             if ($delete) {
-                $_SESSION["borrado"] = "Borrado_exitoso";
+                $_SESSION["producto"] = "borrado_exitoso";
             } else {
-                $_SESSION["borrado"] = "Borrado_fallido";
+                $_SESSION["producto"] = "borrado_fallido";
             }
         } else {
-            $_SESSION["borrado"] = "Borrado_fallido";
+            $_SESSION["producto"] = "borrado_fallido";
         }
 
         header('location:' . base_url . 'productos/gestion');
