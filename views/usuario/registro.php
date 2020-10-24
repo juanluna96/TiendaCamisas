@@ -1,20 +1,19 @@
 <h2 class="text-center animated bounceInDown slow">Registrarse</h2>
 <hr class="px-3">
 
-<?php if (isset($_SESSION["register"]) && $_SESSION["register"]=="completado"): ?>
-<div class="alert alert-info" role="alert">
-    <strong>Felicidades</strong>, te has registrado exitosamente
-</div>
-<?php elseif (isset($_SESSION["register"]) && $_SESSION["register"]=="fallido"): ?>
-<div class="alert alert-danger" role="alert">
-    </strong>Lastima</strong>, tu proceso de registro no se llevo a cabo, intenta de nuevo.
-</div>
+<?php if (isset($_SESSION["register"]) && $_SESSION["register"] == "completado") : ?>
+    <div class="alert alert-info" role="alert">
+        <strong>Felicidades</strong>, te has registrado exitosamente
+    </div>
+<?php elseif (isset($_SESSION["register"]) && $_SESSION["register"] == "fallido") : ?>
+    <div class="alert alert-danger" role="alert">
+        </strong>Lastima</strong>, tu proceso de registro no se llevo a cabo, intenta de nuevo.
+    </div>
 <?php endif; ?>
-<?php utilidades::borrarSession('register');?>
+<?php utilidades::borrarSession('register'); ?>
 
 
-<form action="<?php echo base_url;?>usuarios/guardar" class="animated fadeIn slow px-3 mb-2 row" method="POST"
-    enctype="multipart/form-data">
+<form action="<?php echo base_url; ?>usuarios/guardar" class="animated fadeIn slow px-3 mb-2 row" method="POST" enctype="multipart/form-data">
     <div class="col-12 col-md-6 order-2 order-md-1">
         <div class="md-form mt-0">
             <input type="text" id="nombre" class="form-control" name="nombre" required>

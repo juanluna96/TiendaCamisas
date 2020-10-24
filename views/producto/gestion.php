@@ -7,6 +7,9 @@
     <?php utilidades::AlertOperacion("producto", "registrado") ?>
     <?php utilidades::AlertOperacion("producto", "editado") ?>
     <?php utilidades::AlertOperacion("producto", "borrado") ?>
+    <?php utilidades::AlertOperacion("tallaje", "agregado") ?>
+    <?php utilidades::AlertOperacion("color", "agregado") ?>
+    <?php utilidades::borrarSession("tallaje") ?>
     <?php utilidades::borrarSession("producto") ?>
 
     <a href="<?php echo base_url ?>productos/crear" type="button" class="btn btn-indigo mx-0">

@@ -10,6 +10,13 @@ class producto
     private $oferta;
     private $fecha;
     private $categoria_id;
+    private $talla_id;
+    private $color_id;
+    private $imagen1;
+    private $imagen2;
+    private $imagen3;
+    private $imagen4;
+    private $imagen5;
 
     private $db;
 
@@ -178,6 +185,146 @@ class producto
         return $this;
     }
 
+    /**
+     * Get the value of talla_id
+     */
+    public function getTalla_id()
+    {
+        return $this->talla_id;
+    }
+
+    /**
+     * Set the value of talla_id
+     *
+     * @return  self
+     */
+    public function setTalla_id($talla_id)
+    {
+        $this->talla_id = $this->db->real_escape_string($talla_id);
+
+        return $this;
+    }
+
+    /**
+     * Get the value of color_id
+     */
+    public function getColor_id()
+    {
+        return $this->color_id;
+    }
+
+    /**
+     * Set the value of color_id
+     *
+     * @return  self
+     */
+    public function setColor_id($color_id)
+    {
+        $this->color_id = $this->db->real_escape_string($color_id);
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imagen1
+     */
+    public function getImagen1()
+    {
+        return $this->imagen1;
+    }
+
+    /**
+     * Set the value of imagen1
+     *
+     * @return  self
+     */
+    public function setImagen1($imagen1)
+    {
+        $this->imagen1 = $imagen1;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imagen2
+     */
+    public function getImagen2()
+    {
+        return $this->imagen2;
+    }
+
+    /**
+     * Set the value of imagen2
+     *
+     * @return  self
+     */
+    public function setImagen2($imagen2)
+    {
+        $this->imagen2 = $imagen2;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imagen3
+     */
+    public function getImagen3()
+    {
+        return $this->imagen3;
+    }
+
+    /**
+     * Set the value of imagen3
+     *
+     * @return  self
+     */
+    public function setImagen3($imagen3)
+    {
+        $this->imagen3 = $imagen3;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imagen4
+     */
+    public function getImagen4()
+    {
+        return $this->imagen4;
+    }
+
+    /**
+     * Set the value of imagen4
+     *
+     * @return  self
+     */
+    public function setImagen4($imagen4)
+    {
+        $this->imagen4 = $imagen4;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imagen5
+     */
+    public function getImagen5()
+    {
+        return $this->imagen5;
+    }
+
+    /**
+     * Set the value of imagen5
+     *
+     * @return  self
+     */
+    public function setImagen5($imagen5)
+    {
+        $this->imagen5 = $imagen5;
+
+        return $this;
+    }
+
     public function conseguirTodos()
     {
         $sql = "SELECT productos.*, GROUP_CONCAT(tamano) AS tallas FROM productos LEFT JOIN tallas_productos ON productos.id=tallas_productos.producto_id LEFT JOIN tallas ON tallas.id=tallas_productos.talla_id GROUP BY productos.id ORDER BY productos.id ASC";
@@ -188,7 +335,7 @@ class producto
 
     public function conseguirUno()
     {
-        $sql = "SELECT * FROM productos WHERE id={$this->getId()}";
+        $sql = "SELECT productos.*, GROUP_CONCAT(tamano) AS tallas FROM productos LEFT JOIN tallas_productos ON productos.id=tallas_productos.producto_id LEFT JOIN tallas ON tallas.id=tallas_productos.talla_id WHERE productos.id={$this->getId()} GROUP BY productos.id ORDER BY productos.id ASC";
         $productos = $this->db->query($sql);
 
         return $productos;
@@ -210,9 +357,32 @@ class producto
         return $array;
     }
 
+    public function obtenerColoresProducto()
+    {
+        $sql = "SELECT * FROM colores, colores_productos WHERE colores.id=colores_productos.color_id AND colores_productos.producto_id={$this->getId()}";
+        $colores_producto = $this->db->query($sql);
+        return $colores_producto;
+    }
+
     public function save()
     {
         $sql = "INSERT INTO productos VALUES (NULL, '{$this->getNombre()}','{$this->getDescripcion()}','{$this->getPrecio()}','{$this->getStock()}','{$this->getOferta()}', CURDATE() ,'{$this->getCategoria_id()}')";
+        $save = $this->db->query($sql);
+
+        return $save;
+    }
+
+    public function add_talla()
+    {
+        $sql = "INSERT INTO tallas_productos VALUES (NULL, {$this->getTalla_id()}, {$this->getId()})";
+        $save = $this->db->query($sql);
+
+        return $save;
+    }
+
+    public function add_color()
+    {
+        $sql = "INSERT INTO colores_productos VALUES (NULL, {$this->getColor_id()}, {$this->getId()},'{$this->getImagen1()}','{$this->getImagen2()}','{$this->getImagen3()}','{$this->getImagen4()}','{$this->getImagen5()}')";
         $save = $this->db->query($sql);
 
         return $save;

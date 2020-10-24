@@ -28,6 +28,22 @@ class utilidades
         return $categorias;
     }
 
+    public static function mostrarColores()
+    {
+        require_once 'models/color.php';
+        $modelo_color = new color();
+        $colores = $modelo_color->conseguirTodos();
+        return $colores;
+    }
+
+    public static function mostrarTallas()
+    {
+        require_once 'models/talla.php';
+        $modelo_talla = new talla();
+        $tallas = $modelo_talla->conseguirTodos();
+        return $tallas;
+    }
+
     public static function oscurecerColor($rgb, $darker = 2)
     {
 
