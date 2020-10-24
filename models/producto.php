@@ -357,6 +357,14 @@ class producto
         return $array;
     }
 
+    public function obtenerColor()
+    {
+        $sql = "SELECT * FROM colores_productos WHERE color_id={$this->getColor_id()} AND producto_id={$this->getId()}";
+        $consulta_color = $this->db->query($sql);
+
+        return $consulta_color;
+    }
+
     public function obtenerColoresProducto()
     {
         $sql = "SELECT * FROM colores, colores_productos WHERE colores.id=colores_productos.color_id AND colores_productos.producto_id={$this->getId()}";

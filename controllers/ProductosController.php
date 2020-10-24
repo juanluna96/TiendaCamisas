@@ -5,6 +5,10 @@ class ProductosController
 {
     public function index()
     {
+        $modelo_producto = new producto();
+        $productos = $modelo_producto->conseguirTodos();
+
+        $colores_productos = $modelo_producto->obtenerColores();
         // Renderizar vista
         require_once "views/producto/destacados.php";
     }
@@ -123,6 +127,7 @@ class ProductosController
 
     public function add_color()
     {
+        utilidades::ValidarAdmin();
         if (isset($_POST) && isset($_FILES)) {
             $id = $_GET['producto_id'];
             $color = isset($_POST["color"]) ? $_POST["color"] : false;
@@ -187,6 +192,8 @@ class ProductosController
         }
         header('location:' . base_url . "productos/gestion");
     }
+
+
 
     public function editar()
     {

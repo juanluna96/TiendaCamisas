@@ -9,6 +9,7 @@
     <?php utilidades::AlertOperacion("producto", "borrado") ?>
     <?php utilidades::AlertOperacion("tallaje", "agregado") ?>
     <?php utilidades::AlertOperacion("color", "agregado") ?>
+    <?php utilidades::borrarSession("color") ?>
     <?php utilidades::borrarSession("tallaje") ?>
     <?php utilidades::borrarSession("producto") ?>
 
@@ -55,8 +56,10 @@
                             <div class="content color">
                                 <div class="value-color justify-content-around">
                                     <?php for ($i = 0; $i < COUNT($colores_productos[$producto['id']]); $i++) : ?>
-                                        <input type="radio" class="color" name="color" id="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>" value="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>" />
-                                        <label class="color" for="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>"><span class="<?php echo $colores_productos[$producto['id']][$i]['color']; ?>"></span></label>
+                                        <?php $color = $colores_productos[$producto['id']][$i]; ?>
+                                        <a>
+                                            <label class="color" href="hola" for="<?php echo $color['color']; ?>"><span class="<?php echo $color['color']; ?>"></span></label>
+                                        </a>
                                     <?php endfor; ?>
                                 </div>
                             </div>
@@ -83,6 +86,12 @@
         </tbody>
     </table>
 </div>
+
+<style>
+    .boton-1 {
+        z-index: 2000;
+    }
+</style>
 
 <?php
 foreach ($productos as $producto) {
