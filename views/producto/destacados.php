@@ -2,7 +2,7 @@
     <?php foreach ($productos as $producto) : ?>
         <?php if (isset($colores_productos[$producto['id']]) && $producto['tallas'] != null) : ?>
             <?php $tallas = explode(',', $producto['tallas']); ?>
-            <div class="col-12 col-md-6 col-xl-4 mb-3 animated fadeIn slow">
+            <div class="col-12 col-md-6 col-xl-3 mb-3 animated fadeIn slow">
                 <div class="caja-producto rounded">
                     <?php
                     $primer_color = $colores_productos[$producto['id']][0]['color'];
@@ -13,12 +13,12 @@
                     </div>
                     <div class="card-content">
                         <div class="wrapper">
-                            <div class="d-flex flex-wrap justify-content-between align-content-center titulo">
+                            <div class="d-flex flex-wrap justify-content-between align-content-center titulo w-100">
                                 <div class="title"><?= $producto['nombre'] ?></div>
-                                <div class="price">$<?= $producto['precio'] ?> COP</div>
+                                <div class="price py-1">$<?= $producto['precio'] ?> COP</div>
                             </div>
-                            <p><?= substr($producto['descripcion'], 0, 120) . "..." ?></p>
-                            <div class="content size">
+                            <p class="mb-0"><?= substr($producto['descripcion'], 0, 120) . "..." ?></p>
+                            <div class="content size m-0">
                                 <div class="form-group">
                                     <div class="select" id="el1">
                                         <i class="fas fa-angle-down"></i>
@@ -44,7 +44,7 @@
                                 <div class="name name-size">
                                     Color
                                 </div>
-                                <div class="value-color justify-content-around">
+                                <div class="value-color justify-content-between w-75">
                                     <?php for ($i = 0; $i < COUNT($colores_productos[$producto['id']]); $i++) : ?>
                                         <?php
                                         $color = $colores_productos[$producto['id']][$i]['color'];

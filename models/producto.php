@@ -359,10 +359,18 @@ class producto
 
     public function obtenerColor()
     {
-        $sql = "SELECT * FROM colores_productos WHERE color_id={$this->getColor_id()} AND producto_id={$this->getId()}";
+        $sql = "SELECT productos.*,colores.*,colores_productos.*,categorias.nombre AS nombre_categoria FROM colores_productos, colores, productos,categorias WHERE productos.categoria_id=categorias.id AND colores.id=colores_productos.color_id AND productos.id=colores_productos.producto_id AND color_id={$this->getColor_id()} AND producto_id={$this->getId()}";
         $consulta_color = $this->db->query($sql);
 
         return $consulta_color;
+    }
+
+    public function deleteColor()
+    {
+        $sql = "DELETE FROM colores_productos WHERE color_id={$this->getColor_id()} AND producto_id={$this->getId()}";
+        $borrar_color = $this->db->query($sql);
+
+        return $borrar_color;
     }
 
     public function obtenerColoresProducto()
@@ -401,7 +409,7 @@ class producto
         $sql = "DELETE FROM productos WHERE id={$this->getId()}";
         $delete = $this->db->query($sql);
 
-        return $delete;
+        return $sql;
     }
 
     public function edit()

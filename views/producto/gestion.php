@@ -9,6 +9,7 @@
     <?php utilidades::AlertOperacion("producto", "borrado") ?>
     <?php utilidades::AlertOperacion("tallaje", "agregado") ?>
     <?php utilidades::AlertOperacion("color", "agregado") ?>
+    <?php utilidades::AlertOperacion("color", "borrado del producto") ?>
     <?php utilidades::borrarSession("color") ?>
     <?php utilidades::borrarSession("tallaje") ?>
     <?php utilidades::borrarSession("producto") ?>
@@ -33,9 +34,13 @@
             <?php foreach ($productos as $producto) : ?>
                 <?php
                 $tallas = explode(',', $producto['tallas']);
+                if (!isset($counter)) {
+                    $counter = 1;
+                }
                 ?>
                 <tr>
-                    <td class="text-center" scope="row"><?php echo $producto['id']; ?></td>
+                    <td class="text-center" scope="row"><?php echo $counter; ?></td>
+                    <?php $counter++; ?>
                     <td class="text-center"><?php echo $producto['nombre']; ?></td>
                     <td class="text-center"></td>
                     <td class="text-center">$<?php echo $producto['precio']; ?></td>
@@ -57,8 +62,8 @@
                                 <div class="value-color justify-content-around">
                                     <?php for ($i = 0; $i < COUNT($colores_productos[$producto['id']]); $i++) : ?>
                                         <?php $color = $colores_productos[$producto['id']][$i]; ?>
-                                        <a>
-                                            <label class="color" href="hola" for="<?php echo $color['color']; ?>"><span class="<?php echo $color['color']; ?>"></span></label>
+                                        <a href="editar_color&color_id=<?= $color['color_id'] ?>&producto_id=<?= $producto['id'] ?>" target="_blank">
+                                            <label data-toggle="tooltip" title="Color <?= str_replace("_", " ", $color['color']) ?>" class="color" href="hola" for="<?php echo $color['color']; ?>"><span class="<?php echo $color['color']; ?>"></span></label>
                                         </a>
                                     <?php endfor; ?>
                                 </div>
@@ -76,7 +81,7 @@
                             <a class="btn btn-warning mx-0 mx-md-1 col-6 col-md-2" href="<?= base_url ?>productos/editar&producto_id=<?= $producto['id'] ?>" role="button" data-toggle="tooltip" title="Editar producto">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a class="btn btn-danger mx-0 mx-md-1 col-6 col-md-2" href="<?= base_url ?>productos/eliminar&producto_id=<?= $producto['id'] ?>" role="button" data-toggle="tooltip" title="Eliminar producto">
+                            <a class="btn btn-danger mx-0 mx-md-1 col-6 col-md-2" href="<?= base_url ?>productos/eliminar&producto_id=<?= $producto['id'] ?>&nombre_producto=<?= str_replace(" ", "_", $producto['nombre']) ?>" role="button" data-toggle="tooltip" title="Eliminar producto">
                                 <i class="far fa-trash-alt"></i>
                             </a>
                         </div>

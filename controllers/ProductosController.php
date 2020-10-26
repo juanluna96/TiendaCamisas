@@ -36,7 +36,7 @@ class ProductosController
         if (isset($_POST)) {
             $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : false;
             $descripcion = isset($_POST["descripcion"]) ? $_POST["descripcion"] : false;
-            $precio = isset($_POST["precio"]) ? str_replace(".", "", substr($_POST["precio"], 5, -3))  : false;
+            $precio = isset($_POST["precio"]) ? str_replace(",", "", substr($_POST["precio"], 5, -3))  : false;
             $stock = isset($_POST["stock"]) ? $_POST["stock"] : false;
             $categoria = isset($_POST["categoria"]) ? $_POST["categoria"] : false;
             if ($nombre && $descripcion && $precio && $stock && $categoria) {
@@ -193,7 +193,55 @@ class ProductosController
         header('location:' . base_url . "productos/gestion");
     }
 
+    public function editar_color()
+    {
+        utilidades::ValidarAdmin();
+        if (isset($_GET["color_id"]) && isset($_GET["producto_id"])) {
+            $color_id = $_GET['color_id'];
+            $producto_id = $_GET['producto_id'];
 
+            $modelo_producto = new producto();
+            $modelo_producto->setColor_id($color_id);
+            $modelo_producto->setId($producto_id);
+            $producto_colores = $modelo_producto->obtenerColor();
+
+            foreach ($producto_colores as $producto_colores_ind) {
+                $producto_color = $producto_colores_ind;
+            }
+        }
+        require_once 'views/producto/editar_color.php';
+    }
+
+    public function delete_color()
+    {
+        utilidades::ValidarAdmin();
+        if (isset($_POST)) {
+
+            $color_id = isset($_POST["color_id"]) ? $_POST["color_id"] : false;
+            $producto_id = isset($_POST["producto_id"]) ? $_POST["producto_id"] : false;
+            $nombre_producto = isset($_POST["nombre_producto"]) ? $_POST["nombre_producto"] : false;
+            $color = isset($_POST["color"]) ? $_POST["color"] : false;
+
+            $url_color = "assets/img/productos/" . $nombre_producto . "-" . $producto_id . "/" . $color;
+
+            if (is_dir($url_color) && file_exists($url_color)) {
+                utilidades::borrarDirectorio($url_color);
+            }
+
+            $modelo_producto = new producto();
+            $modelo_producto->setColor_id($color_id);
+            $modelo_producto->setId($producto_id);
+            $borrado_color = $modelo_producto->deleteColor();
+            if ($borrado_color) {
+                $_SESSION["color"] = "borrado del producto_exitoso";
+            } else {
+                $_SESSION["color"] = "borrado del producto_fallido";
+            }
+        } else {
+            $_SESSION["color"] = "borrado del producto_fallido";
+        }
+        header('location:' . base_url . "productos/gestion");
+    }
 
     public function editar()
     {
@@ -225,7 +273,7 @@ class ProductosController
             $id = $_GET['producto_id'];
             $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : false;
             $descripcion = isset($_POST["descripcion"]) ? $_POST["descripcion"] : false;
-            $precio = isset($_POST["precio"]) ? str_replace(".", "", substr($_POST["precio"], 5, -3))  : false;
+            $precio = isset($_POST["precio"]) ? str_replace(",", "", substr($_POST["precio"], 5, -3))  : false;
             $stock = isset($_POST["stock"]) ? $_POST["stock"] : false;
             $categoria = isset($_POST["categoria"]) ? $_POST["categoria"] : false;
             if ($id && $nombre && $descripcion && $precio && $stock && $categoria) {
@@ -256,8 +304,15 @@ class ProductosController
     public function eliminar()
     {
         utilidades::ValidarAdmin();
-        if (isset($_GET["producto_id"])) {
+        if (isset($_GET["producto_id"]) && isset($_GET["nombre_producto"])) {
             $id = $_GET['producto_id'];
+            $nombre_producto = str_replace("_", " ", $_GET['nombre_producto']);
+
+            $url_color = "assets/img/productos/" . $nombre_producto . "-" . $id;
+
+            if (is_dir($url_color) && file_exists($url_color)) {
+                utilidades::borrarDirectorio($url_color);
+            }
             $producto = new producto();
             $producto->setId($id);
             $delete = $producto->delete();
@@ -270,7 +325,6 @@ class ProductosController
         } else {
             $_SESSION["producto"] = "borrado_fallido";
         }
-
         header('location:' . base_url . 'productos/gestion');
     }
 }

@@ -73,4 +73,23 @@ class utilidades
             echo "</div>";
         }
     }
+
+    public static function borrarDirectorio($ruta_directorio)
+    {
+        if (!is_dir($ruta_directorio)) {
+            throw new InvalidArgumentException("$ruta_directorio must be a directory");
+        }
+        if (substr($ruta_directorio, strlen($ruta_directorio) - 1, 1) != '/') {
+            $ruta_directorio .= '/';
+        }
+        $files = glob($ruta_directorio . '*', GLOB_MARK);
+        foreach ($files as $file) {
+            if (is_dir($file)) {
+                self::borrarDirectorio($file);
+            } else {
+                unlink($file);
+            }
+        }
+        rmdir($ruta_directorio);
+    }
 }

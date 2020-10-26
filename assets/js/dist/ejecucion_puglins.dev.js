@@ -107,7 +107,7 @@ $(document).ready(function () {
 
   $('#precio').priceFormat({
     prefix: 'COP$ ',
-    thousandsSeparator: '.'
+    thousandsSeparator: ','
   });
   /* -------------------------------------------------------------------------- */
 
